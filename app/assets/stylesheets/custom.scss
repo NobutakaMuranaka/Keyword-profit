@@ -56,15 +56,15 @@ p {
 
 // ヘッダー
 .navbar ul{
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
  #logo  {
   float: left;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   img {
-    width: 150px;
+    width: 230px;
   }
 }
 
@@ -77,4 +77,25 @@ footer {
   small {
     float: center;
   }
+}
+
+.top-copy {
+  margin-top: 180px;
+}
+
+.btn--orange,
+a.btn--orange {
+  margin: 70px 50px;
+  padding: 20px 90px;
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.btn-link {
+  color: #fff;
 }
