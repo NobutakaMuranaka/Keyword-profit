@@ -7,10 +7,6 @@ RSpec.describe "StaticPages", type: :system do
         visit root_path
       end
 
-      it "Keywordの文字列が存在することを確認" do
-        expect(page).to have_content 'Keyword'
-      end
-
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title
       end
