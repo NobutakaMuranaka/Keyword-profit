@@ -17,4 +17,15 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-9">
+      <% if @user.keywords.any? %>
+        <h3>キーワード (<%= @user.keywords.count %>)</h3>
+        <ol class="keywords">
+          <%= render @keywords %>
+        </ol>
+        <%= will_paginate @keywords %>
+      <% end %>
+    </div>
+  </div>
 </div>
