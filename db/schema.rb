@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_170018) do
+ActiveRecord::Schema.define(version: 2021_10_14_151800) do
+
+  create_table "keywords", force: :cascade do |t|
+    t.integer "volume"
+    t.text "description"
+    t.text "query"
+    t.integer "goal_pv"
+    t.float "goal_cvr"
+    t.integer "goal_price"
+    t.float "goal_profit"
+    t.integer "goal_rank"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at"], name: "index_keywords_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_keywords_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
