@@ -23,11 +23,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params_update)
@@ -40,11 +40,6 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
-    end
-    
     # ユーザー新規作成時に許可する属性
     def user_params
       params.require(:user).permit(:name, :email, :password,
@@ -55,7 +50,7 @@ class UsersController < ApplicationController
     def user_params_update
       params.require(:user).permit(:name, :email, :introduction)
     end
-    
+
     # 正しいユーザーかどうか確認
     def correct_user
       @user = User.find(params[:id])
