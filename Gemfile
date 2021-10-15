@@ -61,3 +61,6 @@ gem 'bootstrap-sass'  # Bootstrap用のgemを追加
 gem 'devise'
 
 gem 'faker'
+
+gem 'will_paginate',           '3.1.7'  # 追記
+gem 'bootstrap-will_paginate', '1.0.0'  # 追記

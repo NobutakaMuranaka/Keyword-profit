@@ -17,4 +17,44 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-9">
+      <% if @user.keywords.any? %>
+        <h3>キーワード (<%= @user.keywords.count %>)</h3>
+        <div class="table-responsive">
+　　      <table class="table table-condensed">
+            <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>キーワード</th>
+                  <th>検索Vol</th>
+                  <th>目標順位</th>
+                  <th>想定流入数</th>
+                  <th>想定CVR</th>
+                  <th>想定平均単価</th>
+                  <th>想定報酬額</th>
+                  <th>メモ</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% @keywords.each do |keyword| %>
+              <tr>
+                <td><%= keyword.id %></td>
+                <th><%= keyword.query %></th>
+                <td><%= keyword.volume %></td>
+                <td><%= keyword.goal_rank %></td>
+                <td><%= keyword.goal_pv %></td>
+                <th><%= keyword.goal_cvr %></th>
+                <td><%= keyword.goal_price %></td>
+                <td><%= keyword.goal_profit %></td>
+                <td><%= keyword.description %></td>
+              </tr>
+              <% end %>  
+            </tbody>
+　　      </table>
+        </div>
+        <%= will_paginate @keywords %>
+      <% end %>
+    </div>
+  </div>
 </div>
