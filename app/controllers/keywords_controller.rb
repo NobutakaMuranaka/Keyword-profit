@@ -1,7 +1,31 @@
 class KeywordsController < ApplicationController
   before_action :logged_in_user
-    
+
   def new
     @keyword = Keyword.new
   end
+
+  def create
+    @keyword = current_user.keywords.build(keyword_params)
+    if @keyword.save
+      flash[:success] = "キーワードが登録されました！"
+      redirect_to current_user
+    else
+      render 'keywords/new'
+    end
+  end
+
+  def destroy
+    @keyword = Keyword.find(params[:id])
+      @keyword.destroy
+      flash[:success] = "キーワードが削除されました"
+      redirect_to request.referrer == user_url(@keyword.user) ? user_url(@keyword.user) : root_url
+  end
+
+  private
+
+    def keyword_params
+      params.require(:keyword).permit(:query, :volume, :goal_rank, :goal_pv,
+                                      :goal_cvr, :goal_price, :goal_profit, :description)
+    end
 end
