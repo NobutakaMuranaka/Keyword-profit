@@ -90,6 +90,7 @@ footer {
 
 .btn--orange,
 a.btn--orange {
+  position: relative;
   margin: 70px 50px;
   padding: 20px 90px;
   color: #fff;
@@ -176,7 +177,6 @@ input {
   color: #f00;
 }
 
-//// 料理登録ページ ////
 .input-need {
   color: red;
   font-size: 13px;
