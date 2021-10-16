@@ -56,8 +56,12 @@ p {
 
 // ヘッダー
 
+.navbar-right {
+ float: right; 
+}
+
 .navbar ul{
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 10px;
 }
  #logo  {
