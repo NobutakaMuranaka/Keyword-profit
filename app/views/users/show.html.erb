@@ -19,7 +19,7 @@
   </div>
   <%= link_to "新規キーワード登録", new_keyword_path, class: "btn btn-primary btn-lg btn-record" %>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <% if @user.keywords.any? %>
         <h3>キーワード (<%= @user.keywords.count %>)</h3>
         <div class="table-responsive">
