@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -31,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3', '~> 1.3.6'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing'
@@ -51,6 +50,10 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
+end
+
+group :production do # 本番環境
+  gem 'pg' # PostgreSQL
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
