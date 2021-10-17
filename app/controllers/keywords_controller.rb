@@ -14,12 +14,26 @@ class KeywordsController < ApplicationController
       render 'keywords/new'
     end
   end
+  
+  def edit
+    @keyword = Keyword.find(params[:id])
+  end
 
+  def update
+    @keyword = Keyword.find(params[:id])
+    if @keyword.update_attributes(keyword_params)
+      flash[:success] = "キーワード情報が更新されました！"
+      redirect_to @keyword
+    else
+      render 'edit'
+    end
+  end
+  
   def destroy
     @keyword = Keyword.find(params[:id])
-      @keyword.destroy
-      flash[:success] = "キーワードが削除されました"
-      redirect_to request.referrer == user_url(@keyword.user) ? user_url(@keyword.user) : root_url
+    @keyword.destroy
+    flash[:success] = "キーワードが削除されました"
+    redirect_to root_url
   end
 
   private
