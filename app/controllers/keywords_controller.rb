@@ -23,7 +23,7 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.find(params[:id])
     if @keyword.update_attributes(keyword_params)
       flash[:success] = "キーワード情報が更新されました！"
-      redirect_to @keyword
+      redirect_back(fallback_location: root_path)
     else
       render 'edit'
     end
