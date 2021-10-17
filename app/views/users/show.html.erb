@@ -50,6 +50,8 @@
                 <td class="goal_profit" ><%= keyword.goal_profit %>円</td>
                 <td><%= keyword.description %></td>
                 <td><%= link_to "編集", edit_keyword_path(keyword.id), class: 'edit-keyword' %></td>　
+                <td><%= link_to "削除", keyword_path(keyword.id), method: :delete,
+                       data: { confirm: "本当に削除しますか？" } %></td>
               </tr>
               <% end %>  
             </tbody>
