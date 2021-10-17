@@ -2,8 +2,43 @@
 <div class="container">
   <h1>キーワード編集</h1>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <%= render 'keywords/keyword_form' %>
+  <div class="col-md-6 col-md-offset-3">
+  <%= form_with model: @keyword, local: true do |f| %>
+   <%= render 'shared/error_messages', object: f.object %>
+   <div class = 'form-group'>
+     <%= f.label :キーワード %>
+     <%= f.text_field :query, class: 'form-control', id: 'keyword_query' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :検索ボリューム %>
+     <%= f.text_field :volume, class: 'form-control', id: 'keyword_volume' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :目標順位 %> (位)
+     <%= f.text_field :goal_rank, class: 'form-control', id: 'keyword_goal_rank' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :想定流入数 %> (PV)
+     <%= f.text_field :goal_pv, class: 'form-control', id: 'keyword_goal_pv' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :想定CVR %> (%)
+     <%= f.text_field :goal_cvr, class: 'form-control', id: 'keyword_goal_cvr' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :平均単価 %> (円)
+     <%= f.text_field :goal_price, class: 'form-control', id: 'keyword_goal_price' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :想定報酬額 %> (円)
+     <%= f.text_field :goal_profit, class: 'form-control', id: 'keyword_goal_profit' %>
+   </div>
+   <div class = 'form-group'>
+     <%= f.label :メモ %>
+     <%= f.text_field :description, size: "60x4", class: 'form-control', id: 'keyword_description' %>
+   </div>
+   <%= f.submit "更新する", class: "btn btn-primary" %>
+<% end %>
     </div>
   </div>
 </div>
