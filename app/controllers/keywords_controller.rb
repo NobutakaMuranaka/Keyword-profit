@@ -14,6 +14,20 @@ class KeywordsController < ApplicationController
       render 'keywords/new'
     end
   end
+  
+  def edit
+    @keyword = Keyword.find(params[:id])
+  end
+
+  def update
+    @keyword = Keyword.find(params[:id])
+    if @keyword.update_attributes(keyword_params)
+      flash[:success] = "キーワード情報が更新されました！"
+      redirect_to @keyword
+    else
+      render 'edit'
+    end
+  end
 
   def destroy
     @keyword = Keyword.find(params[:id])

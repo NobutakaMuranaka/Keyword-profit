@@ -49,6 +49,7 @@
                 <td><%= keyword.goal_price %>円</td>
                 <td class="goal_profit" ><%= keyword.goal_profit %>円</td>
                 <td><%= keyword.description %></td>
+                <td><%= link_to "編集", edit_keyword_path(keyword.id), class: 'edit-keyword' %></td>　
               </tr>
               <% end %>  
             </tbody>
