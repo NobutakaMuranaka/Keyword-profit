@@ -33,7 +33,7 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.find(params[:id])
     @keyword.destroy
     flash[:success] = "キーワードが削除されました"
-    redirect_to root_url
+    redirect_back(fallback_location: root_path)
   end
 
   private
