@@ -21,6 +21,14 @@
       <%= f.label :introduction %>
       <%= f.text_area :introduction, size: "60x4", class: 'form-control', id: 'user_introduction' %>
     </div>
+    <div class = 'form-group'>
+      <%= f.label "登録サイト" %>
+      <%= f.text_area :media_url, class: 'form-control', id: 'user_media_url' %>
+    </div>
+    <div class = 'form-group'>
+      <%= f.label "目標月額発生金額" %>
+      <%= f.text_area :total_goal_profit, class: 'form-control', id: 'user_total_goal_profit' %>
+    </div>
     <%= f.submit "更新する", class: "btn btn-primary" %>
     <% end %>
   </div>
