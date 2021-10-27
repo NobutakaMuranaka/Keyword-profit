@@ -12,6 +12,12 @@
       <div>
         <%= @user.introduction %>
       </div>
+      <div>
+        <%= @user.media_url %>
+      </div>
+      <div>
+        <%= @user.total_goal_profit %>
+      </div>
       <% if current_user == @user %>
         <div class="account-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
       <% end %>
