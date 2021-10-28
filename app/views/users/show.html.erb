@@ -55,10 +55,14 @@
                 <td><%= keyword.goal_price %>円</td>
                 <td class="goal_profit" ><%= keyword.goal_profit %>円</td>
                 <td><%= keyword.description %></td>
-                <td><%= link_to "編集", edit_keyword_path(keyword.id), class: 'edit-keyword' %></td>　
-                <td><%= link_to "削除", keyword_path(keyword.id), method: :delete,
-                       data: { confirm: "本当に削除しますか？" } %></td>
-              </tr>
+                <td><%= link_to edit_keyword_path(keyword.id), class: "keyword_edit", method: :get do %>
+                <i class="fas fa-pen"></i>
+                <% end %></td>
+                <td><%= link_to keyword_path(keyword.id), class: "keyword_destroy",
+                       data: { confirm: "本当に削除しますか？" } , method: :delete do %>
+                <i class="far fa-trash-alt"></i> 
+                <% end %></td>
+                </tr>
               <% end %>  
             </tbody>
 　　      </table>
