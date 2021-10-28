@@ -15,6 +15,7 @@ gem 'devise'
 gem 'faker'
 gem 'will_paginate',           '3.1.7'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'font-awesome-sass'
 
 group :production do 
   gem 'pg'
