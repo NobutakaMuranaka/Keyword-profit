@@ -53,7 +53,7 @@
                 <td><%= keyword.goal_pv %>PV</td>
                 <th><%= keyword.goal_cvr %>%</th>
                 <td><%= keyword.goal_price %>円</td>
-                <td class="goal_profit" ><%= keyword.goal_profit %>円</td>
+                <td class="goal_profit" ><%= keyword.goal_profit.to_i %>円</td>
                 <td><%= keyword.description %></td>
                 <td><%= link_to edit_keyword_path(keyword.id), class: "keyword_edit", method: :get do %>
                 <i class="fas fa-pen"></i>
