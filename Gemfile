@@ -34,8 +34,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # login
 gem 'devise'
 
-# Test
-gem 'faker'
+# UI/UX
+gem 'slim-rails'
+gem 'html2slim'
+gem 'draper'
 
 # Pagination
 gem 'will_paginate',           '3.1.7'
@@ -45,22 +47,28 @@ group :production do
 end
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  # Debugger
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  # Test
   gem 'rspec-rails', '~> 4.0.0.beta2'
-  gem 'rails-controller-testing'
-  gem 'rubocop-airbnb'
   gem "factory_bot_rails", "~> 4.10.0"
+  gem 'rails-controller-testing'
+  # Code analyse
+  gem 'rubocop-airbnb'
 end
 
 group :development do
-  gem 'spring-commands-rspec'
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'webdrivers'
+  gem 'faker'
 end
