@@ -1,0 +1,27 @@
+- provide(:title, "プロフィール編集")
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+      .gravatar_edit
+        = gravatar_for(@user, size: 40)
+        = @user.name
+      a[href="http://gravatar.com/emails" target="_blank"]
+        | プロフィール写真を変更
+  p
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'user_name'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control', id: 'user_email'
+  .form-group
+    = f.label :introduction
+    = f.text_area :introduction, size: "60x4", class: 'form-control', id: 'user_introduction'
+  .form-group
+    = f.label "登録サイト"
+    = f.text_area :media_url, class: 'form-control', id: 'user_media_url'
+  .form-group
+    = f.label "目標月額発生金額"
+    = f.text_area :total_goal_profit, class: 'form-control', id: 'user_total_goal_profit'
+  = f.submit "更新する", class: "btn btn-primary"

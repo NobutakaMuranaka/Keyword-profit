@@ -1,0 +1,89 @@
+- provide(:title, "プロフィール")
+.container
+  h3.title-profile
+    | プロフィール
+  .row
+    .col-md-4
+      .user-picture-box
+        = gravatar_for @user, size: 120, cl: "gravatar user-picture"
+    .col-md-8
+      h4.show-user-name
+        = @user.name
+      div
+        = @user.introduction
+      div
+        = @user.media_url
+      div
+        = @user.total_goal_profit
+      - if current_user == @user
+        .account-edit
+          = link_to "プロフィール編集", edit_user_path(@user)
+  = link_to "新規キーワード登録", new_keyword_path, class: "btn btn-primary btn-lg btn-record"
+  .row
+    .col-md-12
+      - if @user.keywords.any?
+        h3
+          | キーワード (
+          = @user.keywords.count
+          | )
+        .table-responsive
+          |
+          table.table.table-condensed
+
+        thead
+          tr
+
+        th
+          | ID
+        th
+          | キーワード
+        th
+          | 検索Vol
+        th
+          | 目標順位
+        th
+          | 想定流入数
+        th
+          | 想定CVR
+        th
+          | 想定平均単価
+        th
+          | 想定報酬額
+        th
+          | メモ
+        tbody
+          - @keywords.each do |keyword|
+            tr
+
+            td
+              = keyword.id
+            th
+              = keyword.query
+            td
+              = keyword.volume
+            td
+              = keyword.goal_rank
+              | 位
+            td
+              = keyword.goal_pv
+              | PV
+            th
+              = keyword.goal_cvr
+              | %
+            td
+              = keyword.goal_price
+              | 円
+            td.goal_profit
+              = keyword.goal_profit.to_i
+              | 円
+            td
+              = keyword.description
+            td
+              = link_to edit_keyword_path(keyword.id), class: "keyword_edit", method: :get do
+                i.fas.fa-pen
+            td
+              = link_to keyword_path(keyword.id), class: "keyword_destroy",
+              -                        data: { confirm: "本当に削除しますか？" } , method: :delete do
+              i.far.fa-trash-alt
+      |
+    = will_paginate @keywords
