@@ -1,0 +1,25 @@
+header.navbar.fixed-top
+  .container
+    nav
+      - if logged_in?
+        = link_to(image_tag("Keyword-profit.jpg", :alt => ""), current_user, id: 'logo')
+        ul.nav.navbar-nav.navbar-right
+          li.dropdown
+
+        a.dropdown-toggle[href="#" data-toggle="dropdown"]
+          |  アカウント 
+        b.caret
+        ul.dropdown-menu
+          li
+            = link_to 'プロフィール', current_user
+          li.divider
+          li
+            = link_to 'ログアウト', logout_path, method: :delete
+      - else
+        = link_to(image_tag("Keyword-profit.jpg", :alt => ""), root_url, id: 'logo')
+        ul.nav.navbar-nav.navbar-right
+          li
+            = link_to 'ユーザー登録(無料)', signup_path
+          li
+            = link_to 'ログイン', login_path
+          |  </ul 
